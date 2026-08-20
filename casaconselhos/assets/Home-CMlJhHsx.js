@@ -4017,12 +4017,12 @@ const Tt = ["src"],
       we();
       const r = Ce();
       function o(c) {
-        if (c.link) r.push({ path: `${c.link}` });
-        else if (c.site) {
-          var h = window.open();
-          h.location.href = c.site;
+        if (c.link) {
+          window.location.href = c.link;
+        } else if (c.site) {
+          window.open(c.site, "_blank");
         }
-      }
+      } 
       return (
         Se(t, "modelValue", e),
         (c, h) => (
@@ -4141,7 +4141,7 @@ const Tt = ["src"],
                             selectedItemsLabel: "{0} conselhos selecionados",
                             options: Z(s),
                             filter: "",
-                            optionLabel: "sigla_nome",
+                            optionLabel: "sigla",
                             placeholder: "Selecione um conselho",
                             maxSelectedLabels: 3,
                           },

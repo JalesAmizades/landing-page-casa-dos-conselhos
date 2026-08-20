@@ -21301,67 +21301,77 @@ class wC {
   try {
     // Lista manual dos 10 conselhos
     const meusConselhos = [
-      {
-        sigla: "COMTUR",
-        nome: "Conselho Municipal de Turismo",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "COMSEA",
-        nome: "Conselho Municipal de Segurança Alimentar e Nutricional Sustentável",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "COMPIR",
-        nome: "Conselho Municipal de Promoção da Igualdade Racial",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "COMDIM",
-        nome: "Conselho Municipal dos Direitos da Mulher",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "COMDEMA",
-        nome: "Conselho Municipal de Conservação e Defesa do Meio Ambiente",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "CMPPC",
-        nome: "Conselho Municipal de Políticas Penais de Carangola",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "CMDPI",
-        nome: "Conselho Municipal de Defesa do Idoso",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "CMDPD",
-        nome: "Conselho Municipal de Defesa dos Direitos da Pessoa com Deficiência de Carangola",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "CMDCA",
-        nome: "Conselho Municipal dos Direitos da Criança e do Adolescente",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      },
-      {
-        sigla: "CMAS",
-        nome: "Conselho Municipal da Assistência Social",
-        endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
-        imagem: ""
-      }
-    ];
+  {
+    sigla: "COMTUR",
+    nome: "Conselho Municipal de Turismo",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/COMTUR.png",
+    link: "/casaconselhos/detalhes.html?sigla=COMTUR"
+  },
+  {
+    sigla: "COMSEA",
+    nome: "Conselho Municipal de Segurança Alimentar e Nutricional Sustentável",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/logo_brasao_rodape_transparente.png",
+    link: "/casaconselhos/detalhes.html?sigla=COMSEA"
+  },
+  {
+    sigla: "COMPIR",
+    nome: "Conselho Municipal de Promoção da Igualdade Racial",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/COMPIR.png",
+    link: "/casaconselhos/detalhes.html?sigla=COMPIR"
+  },
+  {
+    sigla: "COMDIM",
+    nome: "Conselho Municipal dos Direitos da Mulher",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/logo_brasao_rodape_transparente.png",
+    link: "/casaconselhos/detalhes.html?sigla=COMDIM"
+  },
+  {
+    sigla: "COMDEMA",
+    nome: "Conselho Municipal de Conservação e Defesa do Meio Ambiente",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/logo_brasao_rodape_transparente.png",
+    link: "/casaconselhos/detalhes.html?sigla=COMDEMA"
+  },
+  {
+    sigla: "CMPPC",
+    nome: "Conselho Municipal de Políticas Penais de Carangola",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/cmppc.png",
+    link: "/casaconselhos/detalhes.html?sigla=CMPPC"
+  },
+  {
+    sigla: "CMDPI",
+    nome: "Conselho Municipal de Defesa do Idoso",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/cmdpi.png",
+    link: "/casaconselhos/detalhes.html?sigla=CMDPI"
+  },
+  {
+    sigla: "CMDPD",
+    nome: "Conselho Municipal de Defesa dos Direitos da Pessoa com Deficiência de Carangola",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/cmdpd.png",
+    link: "/casaconselhos/detalhes.html?sigla=CMDPD"
+  },
+  {
+    sigla: "CMDCA",
+    nome: "Conselho Municipal dos Direitos da Criança e do Adolescente",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/cmdca.png",
+    link: "/casaconselhos/detalhes.html?sigla=CMDCA"
+  },
+  {
+    sigla: "CMAS",
+    nome: "Conselho Municipal da Assistência Social",
+    endereco: "Rua Pedro de Oliveira 224 Centro Carangola MG",
+    imagem: "/casaconselhos/assets/cmas.png",
+    link: "/casaconselhos/detalhes.html?sigla=CMAS"
+  }
+];
 
     // Atribui a lista ao estado
     this.entidades = meusConselhos;

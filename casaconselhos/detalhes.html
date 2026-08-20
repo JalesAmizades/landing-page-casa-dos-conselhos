@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Conselho</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f5f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+    .card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 2%;
+      margin-bottom: 20px;
+    }
+    .card h1 {
+      font-size: 24px;
+      color: #1e293b;
+      margin: 0 0 10px;
+    }
+    .card h2 {
+      font-size: 20px;
+      color: #0056b3;
+      margin: 0 0 15px;
+    }
+    .card p {
+      font-size: 16px;
+      color: #475569;
+      margin: 5px 0;
+    }
+    .btn-voltar {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #0056b3;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-voltar:hover {
+      background: #004494;
+    }
+    .erro {
+      color: #dc2626;
+      font-weight: bold;
+    }
+    .btn-documentos {
+      display: inline-block;
+      margin-top: 15px;
+      margin-right: 10px;
+      padding: 10px 20px;
+      background: #28a745; /* verde */
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-documentos:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img id="imagem" src="" alt="Imagem do conselho" style="display: none;">
+    <h1 id="sigla"></h1>
+    <h2 id="nome"></h2>
+    <p><strong>Endereço:</strong> <span id="endereco"></span></p>
+    <a id="btn-documentos" class="btn-documentos" href="#">Documentos</a>
+<button class="btn-voltar" onclick="history.back()">Voltar</button>
+    <p id="erro" class="erro"></p>
+  </div>
+
+  <script>
+    // Obtém o parâmetro 'sigla' da URL
+    const params = new URLSearchParams(window.location.search);
+    const sigla = params.get('sigla');
+
+    if (!sigla) {
+      document.getElementById('erro').textContent = 'Nenhum conselho especificado.';
+    } else {
+      // Busca os dados dos conselhos no JSON
+      fetch('/casaconselhos/assets/conselhos.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Falha ao carregar dados');
+          return response.json();
+        })
+        .then(conselhos => {
+          const conselho = conselhos.find(item => item.sigla === sigla);
+          if (conselho) {
+            document.getElementById('sigla').textContent = conselho.sigla;
+            document.getElementById('nome').textContent = conselho.nome;
+            document.getElementById('endereco').textContent = conselho.endereco || 'Não informado';
+            // Define o link do botão Documentos
+            if (conselho.documentos) {
+              document.getElementById('btn-documentos').href = conselho.documentos;
+            } else {
+              // Se não existir campo 'documentos', esconde o botão
+              document.getElementById('btn-documentos').style.display = 'none';
+            }
+            
+
+            // Se houver imagem, exibe
+            if (conselho.imagem) {
+              const img = document.getElementById('imagem');
+              img.src = conselho.imagem;
+              img.style.display = 'block';
+            }
+          } else {
+            document.getElementById('erro').textContent = 'Conselho não encontrado.';
+          }
+        })
+        .catch(error => {
+          console.error('Erro:', error);
+          document.getElementById('erro').textContent = 'Erro ao carregar os dados do conselho.';
+        });
+    }
+  </script>
+</body>
+</html>
