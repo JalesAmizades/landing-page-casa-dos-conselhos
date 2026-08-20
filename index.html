@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  // Força o tema claro imediatamente
+  document.documentElement.classList.remove('dark');
+
+  // Define a preferência como 'light' no armazenamento local
+  localStorage.setItem('theme', 'light');
+  // Caso a chave usada seja outra, tente também:
+  localStorage.setItem('vueuse-color-scheme', 'light');
+  localStorage.setItem('color-scheme', 'light');
+</script>
+
   <title>Casa Dos Conselhos</title>
   <link rel="icon" type="image/svg+xml" href="./casaconselhos/assets/casa_conselhos.svg">
   
@@ -10,18 +21,20 @@
   /* Força a cor azul em todos os elementos do cabeçalho e rodapé */
   header, header *,
   footer, footer * {
-    color: #0056b3 !important;
+    color: rgb(21, 101, 192)!important;
   }
 
   /* Também pode usar RGB: color: rgb(0 86 179) !important; */
 
   /* Se quiser um azul mais vivo: #0d6efd (azul primário do Bootstrap) */
+  
 </style>
 </head>
 <body>
   <div id="app"></div>
   
   <!-- Scripts locais -->
-  <script type="module" src="./casaconselhos/assets/index-Bopl1k9_.js"></script>
+  <link rel="stylesheet" href="/casaconselhos/assets/index-BeEYmCze.css">
+<script type="module" src="/casaconselhos/assets/index-Bopl1k9_.js"></script>
 </body>
 </html>
