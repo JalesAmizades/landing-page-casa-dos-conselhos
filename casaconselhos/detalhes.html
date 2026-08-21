@@ -99,10 +99,49 @@
   </div>
 
 <script>
-  document.getElementById('sigla').textContent = 'Teste';
-  document.getElementById('nome').textContent = 'Conselho de Teste';
-  document.getElementById('endereco').textContent = 'Endereço de Teste';
-  document.getElementById('erro').textContent = '';
+  // Obtém o parâmetro 'sigla' da URL
+  const params = new URLSearchParams(window.location.search);
+  const sigla = params.get('sigla');
+
+  if (!sigla) {
+    document.getElementById('erro').textContent = 'Nenhum conselho especificado.';
+  } else {
+    // Busca os dados dos conselhos no JSON
+    fetch('/casaconselhos/assets/conselhos.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Falha ao carregar dados');
+        return response.json();
+      })
+      .then(conselhos => {
+        const conselho = conselhos.find(item => item.sigla === sigla);
+        if (conselho) {
+          document.getElementById('sigla').textContent = conselho.sigla;
+          document.getElementById('nome').textContent = conselho.nome;
+          document.getElementById('endereco').textContent = conselho.endereco || 'Não informado';
+
+          // Define o link do botão Documentos
+          if (conselho.documentos) {
+            document.getElementById('btn-documentos').href = conselho.documentos;
+          } else {
+            document.getElementById('btn-documentos').style.display = 'none';
+          }
+
+          // Se houver imagem, exibe
+          if (conselho.imagem) {
+            const img = document.getElementById('imagem');
+            img.src = conselho.imagem;
+            img.style.display = 'block';
+            img.setAttribute('data-sigla', conselho.sigla);
+          }
+        } else {
+          document.getElementById('erro').textContent = 'Conselho não encontrado.';
+        }
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        document.getElementById('erro').textContent = 'Erro ao carregar os dados do conselho.';
+      });
+  }
 </script>
 </body>
 </html>
