@@ -32,6 +32,13 @@
       border-radius: 2%;
       margin-bottom: 20px;
     }
+    #imagem[data-sigla="CMPPC"] {
+      width: 189px;
+      height: 77px;
+      object-fit: cover;
+      border-radius: 45%;
+      margin-bottom: 20px;
+    }
     .card h1 {
       font-size: 24px;
       color: #1e293b;
@@ -82,7 +89,7 @@
 </head>
 <body>
   <div class="card">
-    <img id="imagem" src="" alt="Imagem do conselho" style="display: none;">
+    <img id="imagem" src="" alt="Imagem do conselho" style="display: none;" data-sigla="">
     <h1 id="sigla"></h1>
     <h2 id="nome"></h2>
     <p><strong>Endereço:</strong> <span id="endereco"></span></p>
@@ -125,6 +132,7 @@
               const img = document.getElementById('imagem');
               img.src = conselho.imagem;
               img.style.display = 'block';
+               img.setAttribute('data-sigla', conselho.sigla);
             }
           } else {
             document.getElementById('erro').textContent = 'Conselho não encontrado.';
